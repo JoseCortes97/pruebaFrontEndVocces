@@ -5,71 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 6</title>
+    <style>
+        section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            width: 300px;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <article>
         <h1>Maquetado</h1>
-        <p>Un cliente nos ha pedido un ejemplo de como se mostrarían los productos en su web. Dentro del la etiqueta <code>&lt;section&gt;&lt;/section&gt;</code> puede encontrar el listado de productos. ¿Podrías maquetarlos?</p>
+        <p>Un πcliente nos ha pedido un ejemplo de como se mostrarían los productos en su web. Dentro del la etiqueta <code>&lt;section&gt;&lt;/section&gt;</code> puede encontrar el listado de productos. ¿Podrías maquetarlos?</p>
     </article>
 
-    <section>
-        <article>
-            <h1>Audioguía interactiva</h1>
-            <img src="https://vocces.com/wp-content/uploads/dispositivos-con-app-de-audioguia-massima-de-vocces-lab-700900-min.png">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.</p>
-            <span>Descuento -50%</span>
-            <span>Precio desde 9999.99€</span>
-            <button>Ver más</button>
-            <button>Contactar</button>
-        </article>
-        <article>
-            <h1>Articketing</h1>
-            <img src="https://vocces.com/wp-content/uploads/dispositivos-responsive-con-instalacion-del-software-articketing-de-vocces-lab-min.png">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.</p>
-            <span>Precio desde 9999.99€</span>
-            <button>Ver más</button>
-            <button>Contactar</button>
-        </article>
-        <article>
-            <h1>Gafas VR 360</h1>
-            <img src="https://vocces.com/wp-content/uploads/detalles-modulo-vr-360-con-gafas-de-la-catedral-de-jaen-vocces-360.webp">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.</p>
-            <span>Precio desde 9999.99€</span>
-            <button>Ver más</button>
-            <button>Contactar</button>
-        </article>
-        <article>
-            <h1>Gestion de espacios</h1>
-            <img src="https://vocces.com/wp-content/uploads/gestion-integral-diseno-de-tiendas-y-espacios-en-monumentos-de-vocces-y-artisplendore.jpg">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.</p>
-            <span>Precio desde 9999.99€</span>
-            <button>Ver más</button>
-            <button>Contactar</button>
-        </article>
-        <article>
-            <h1>Ticket point</h1>
-            <img src="https://vocces.com/wp-content/uploads/ticketspoint-para-venta-de-entradas-sin-colas-articketing-de-vocces-lab.png">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.</p>
-            <span>Precio desde 9999.99€</span>
-            <button>Ver más</button>
-            <button>Contactar</button>
-        </article>
-        <article>
-            <h1>Desarrollo de sofware</h1>
-            <img src="https://vocces.com/wp-content/uploads/avila-mockup.jpg">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.</p>
-            <span>Precio desde 9999.99€</span>
-            <button>Ver más</button>
-            <button>Contactar</button>
-        </article>
-        <article>
-            <h1>Soporte especializado</h1>
-            <img src="https://vocces.com/wp-content/uploads/hombre-atendiendo-llamada-de-soporte-de-articketing-de-vocces-lab.jpg">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.</p>
-            <span>Precio desde 9999.99€</span>
-            <button>Ver más</button>
-            <button>Contactar</button>
-        </article>
-    </section>
+    <section id="product-list"></section>
+
+    <script>
+        const products = [
+            {
+                title: "Audioguía interactiva",
+                image: "https://vocces.com/wp-content/uploads/dispositivos-con-app-de-audioguia-massima-de-vocces-lab-700900-min.png",
+                description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.",
+                discount: "-50%",
+                price: "Precio desde 9999.99€"
+            },
+            {
+                title: "Articketing",
+                image: "https://vocces.com/wp-content/uploads/dispositivos-responsive-con-instalacion-del-software-articketing-de-vocces-lab-min.png",
+                description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.",
+                price: "Precio desde 9999.99€"
+            },
+            {
+                title: "Gafas VR 360",
+                image: "https://vocces.com/wp-content/uploads/detalles-modulo-vr-360-con-gafas-de-la-catedral-de-jaen-vocces-360.webp",
+                description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.",
+                price: "Precio desde 9999.99€"
+            },
+            {
+                title: "Gestion de espacios",
+                image: "https://vocces.com/wp-content/uploads/gestion-integral-diseno-de-tiendas-y-espacios-en-monumentos-de-vocces-y-artisplendore.jpg",
+                description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.",
+                price: "Precio desde 9999.99€"
+            },
+            {
+                title: "Ticket point",
+                image: "https://vocces.com/wp-content/uploads/ticketspoint-para-venta-de-entradas-sin-colas-articketing-de-vocces-lab.png",
+                description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.",
+                price: "Precio desde 9999.99€"
+            },
+            {
+                title: "Desarrollo de sofware",
+                image: "https://vocces.com/wp-content/uploads/avila-mockup.jpg",
+                description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.",
+                price: "Precio desde 9999.99€"
+            },
+            {
+                title: "Soporte especializado",
+                image: "https://vocces.com/wp-content/uploads/hombre-atendiendo-llamada-de-soporte-de-articketing-de-vocces-lab.jpg",
+                description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, aperiam.",
+                price: "Precio desde 9999.99€"
+            }
+        ];
+
+        const productList = document.getElementById('product-list');
+
+        products.forEach(product => {
+            productList.innerHTML += `
+                <article class="product">
+                    <h1>${product.title}</h1>
+                    <img src="${product.image}" alt="${product.title}">
+                    <p>${product.description}</p>
+                    ${product.discount ? `<span>Descuento ${product.discount}</span>` : ''}
+                    <span>${product.price}</span>
+                    <button>Ver más</button>
+                    <button>Contactar</button>
+                </article>
+            `;
+        });
+    </script>
 </body>
 </html>
