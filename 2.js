@@ -2,8 +2,20 @@
 // Dada una matriz de N elementos repetidos,
 // crea una función numbersTop para obtener los tres elementos más repetidos ordenados de forma descendente por número de repeticiones.
 
-function numbersTop(array) {
-}
+function numbersTop(arr) {
+    const counter = arr.reduce((count, element) => {
+      count[element] = (count[element] || 0) + 1;
+      return count;
+    }, {});
+    
+    const sortedElements = Object.entries(counter).sort((a, b) => b[1] - a[1]);
+    
+    const mostRepeatedElements = sortedElements.slice(0, 3).map(([element]) => {
+      return isNaN(element) ? element : Number(element);
+    });
+  
+    return mostRepeatedElements;
+  } 
 
 /**
  * TEST Ejercicio 2
